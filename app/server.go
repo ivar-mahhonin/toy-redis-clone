@@ -1,7 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net"
+	"os"
+)
+
+const (
+    CONN_HOST = "localhost"
+    CONN_PORT = "3333"
+    CONN_TYPE = "tcp"
+)
 
 func main() {
-	fmt.Println("boot your server here!")
+	// You can use print statements as follows for debugging, they'll be visible when running tests.
+	fmt.Println("Logs from your program will appear here!")
+
+	// Uncomment this block to pass the first stage
+	
+	l, err := net.Listen("tcp", "0.0.0.0:6379")
+	if err != nil {
+		fmt.Println("Failed to bind to port 6379")
+	 	os.Exit(1)
+	}
+	_, err = l.Accept()
+	if err != nil {
+	fmt.Println("Error accepting connection: ", err.Error())
+	os.Exit(1)
+	}
 }
