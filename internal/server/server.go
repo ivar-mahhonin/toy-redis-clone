@@ -104,6 +104,8 @@ func handleConnection(conn net.Conn) {
 	}
 }
 
+// FIXME fix parsing of REPL string, bulk string and arrau
+
 func parseAndExecuteCommand(message string) string {
 	var command []string
 	response := ""

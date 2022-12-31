@@ -17,8 +17,8 @@ const (
 )
 
 func init() {
-	//server := NewTcpServer(CONN_HOST, CONN_PORT)
-	//go server.Start()
+	server := NewTcpServer(CONN_HOST, CONN_PORT)
+	go server.Start()
 }
 
 func TestTCPServerRunning(t *testing.T) {
